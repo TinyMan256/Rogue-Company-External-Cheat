@@ -86,7 +86,7 @@ Training bots godmode
 Fake god mode (shows fake player state to enemies)
 \
 
-Menu:
+Menu settings:
 \
 34 Themes
 \
