@@ -103,9 +103,6 @@ Norecoil: https://vimeo.com/669820262
 \
 Aimbot: https://vimeo.com/669826210
 \
-
-Compiled Cheat:
-\
 Virus total:
 \
 https://www.virustotal.com/gui/file/f1993b18de549076c7da9e63347b124b3d99dce7fca158427a8e99756fb30b79?nocache=1
