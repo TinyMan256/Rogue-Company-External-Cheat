@@ -100,6 +100,7 @@ open/close hotkey
 curosr visibility
 
 Hotkeys:
+\
 Home to show / hide menu
 \
 F1 to enable / disable aimbot
