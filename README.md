@@ -15,9 +15,9 @@ https://www.microsoft.com/en-us/download/details.aspx?id=6812
 
 Include: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include
 \
-Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64 for x64
+Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64    [ for x64 ]
 \
-Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86 for x86
+Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86    [ for x86 ]
 
 How to update the cheat ?
 \
