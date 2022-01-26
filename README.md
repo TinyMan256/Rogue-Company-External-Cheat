@@ -18,12 +18,10 @@ Include: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include
 Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64 for x64
 \
 Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86 for x86
-\
 
 How to update the cheat ?
 \
-Simplest way : https://rc.dumps.host/
-\
+Simplest way : https://rc.dumps.host
 
 Cheat Features:
 \
@@ -52,7 +50,6 @@ Healthbar
 Glow
 \
 player visibility (Glow must be disabled of course)
-\
 
 Aimbot:
 \
@@ -73,7 +70,6 @@ Triggerbot
 team or enemies aimbot
 \
 aim based on player visibility or not
-\
 
 Advanced features:
 \
@@ -94,7 +90,6 @@ Enable or disable self knock [local]
 Training bots godmode
 \
 Fake god mode (shows fake player state to enemies)
-\
 
 Menu settings:
 \
@@ -103,7 +98,6 @@ Menu settings:
 open/close hotkey
 \
 curosr visibility
-\
 
 Super melee: https://user-images.githubusercontent.com/54464793/150986345-0ce819a3-a004-41d3-8358-9408eeba49f5.mp4
 \
@@ -116,7 +110,6 @@ Aimbot: https://vimeo.com/669826210
 Virus total:
 \
 https://www.virustotal.com/gui/file/f1993b18de549076c7da9e63347b124b3d99dce7fca158427a8e99756fb30b79?nocache=1
-\
 
 If you need any help contact me:
 \
@@ -125,6 +118,5 @@ Discord: Tiny Man#0200
 second discord: Tiny Man#9899
 \
 Discord server: https://discord.gg/4NdrctMGtu
-\
 
 Have fun with cheating :)
