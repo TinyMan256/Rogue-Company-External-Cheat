@@ -99,6 +99,14 @@ open/close hotkey
 \
 curosr visibility
 
+Hotkeys:
+
+Home to show / hide menu
+\
+F1 to enable / disable aimbot
+\
+End to close the cheat
+
 Super melee: https://user-images.githubusercontent.com/54464793/150986345-0ce819a3-a004-41d3-8358-9408eeba49f5.mp4
 \
 Melee teleport: https://vimeo.com/manage/videos/661634864
