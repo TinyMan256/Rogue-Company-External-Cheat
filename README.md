@@ -127,4 +127,10 @@ second discord: Tiny Man#9899
 \
 Discord server: https://discord.gg/4NdrctMGtu
 
+================== Important notes ==================
+\
+make sure game is in windowed or borderless (windowed fullscreen)
+\
+press end everytime you close the game
+
 Have fun with cheating :)
