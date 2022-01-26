@@ -131,6 +131,6 @@ Discord server: https://discord.gg/4NdrctMGtu
 \
 make sure game is in windowed or borderless (windowed fullscreen)
 \
-press end everytime you close the game
+press end everytime you close the game to unload the cheat
 
 Have fun with cheating :)
