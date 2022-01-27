@@ -769,7 +769,7 @@ auto RenderVisual()->VOID
 			auto FPlayerName = read<FString>(read<uint64_t>(Playerstate + GameOffset.offset_player_name));
 			CHAR buffer[64];
 			sprintf_s(buffer, "%s", FPlayerName);
-			DrawOutlinedText(Ariali, buffer, ImVec2(pelvisbox.x, pelvisbox.y), 15.0f, ImColor(128, 0, 128, 255), true);
+			DrawOutlinedText(Verdana, buffer, ImVec2(pelvisbox.x, pelvisbox.y), 15.0f, ImColor(128, 0, 128, 255), true);
 		}
 		if (cfg.supermeleelow == true)
 		{
@@ -1009,7 +1009,7 @@ auto RenderVisual()->VOID
 				{
 					char dist[64];
 					sprintf_s(dist, "D:%.fm", entity_distance);
-					DrawOutlinedText(Ariali, dist, ImVec2(BottomBox.x, BottomBox.y), 14.0f, ImColor(255, 255, 255), true);
+					DrawOutlinedText(Verdana, dist, ImVec2(BottomBox.x, BottomBox.y), 14.0f, ImColor(255, 255, 255), true);
 				}
 				if (cfg.b_EspHealth)
 				{
@@ -1028,14 +1028,14 @@ auto RenderVisual()->VOID
 					{
 						char dead[64];
 						sprintf_s(dead, "Dead");
-						DrawOutlinedText(Ariali, dead, ImVec2(TopBox.x, BottomBox.y), 14.0f, ImColor(255, 0, 0, 255), true);
+						DrawOutlinedText(Verdana, dead, ImVec2(TopBox.x, BottomBox.y), 14.0f, ImColor(255, 0, 0, 255), true);
 					}
 				}
 				if (cfg.healthpercenet)
 				{
 					char healthpercenet[64];
 					sprintf(healthpercenet, "H:%.f%%", Percentage);
-					DrawOutlinedText(Ariali, healthpercenet, ImVec2(TopBox.x, TopBox.y), 14.0f, ImColor(0, 255, 0, 255), true);
+					DrawOutlinedText(Verdana, healthpercenet, ImVec2(TopBox.x, TopBox.y), 14.0f, ImColor(0, 255, 0, 255), true);
 				}
 				if (cfg.crosshair)
 				{
@@ -3847,7 +3847,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	ImGuiIO& io = ImGui::GetIO();
 	DefaultFont = io.Fonts->AddFontDefault();
-	Ariali = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\Ariali.ttf", 16.0f);
+	Verdana = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\Verdana.ttf", 16.0f);
 
 	io.Fonts->Build();
 
