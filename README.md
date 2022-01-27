@@ -149,7 +149,9 @@ to load it with process hacker
 \
 ![3](https://user-images.githubusercontent.com/54464793/151290080-a96b375e-33f1-46a3-ac38-2b7c5fa0a93d.png)
 \
-![driver loaded](https://user-images.githubusercontent.com/54464793/151296505-5b8d48e3-932a-4abc-b9db-1753292a699c.png) Loaded correctly 👍
+![driver loaded](https://user-images.githubusercontent.com/54464793/151296505-5b8d48e3-932a-4abc-b9db-1753292a699c.png)
+\
+[picture 4] the driver is loaded correctly 👍
 \
 Now you can run the cheat
 
