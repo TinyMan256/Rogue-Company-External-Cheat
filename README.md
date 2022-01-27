@@ -146,5 +146,7 @@ to load it with process hacker
 ![3](https://user-images.githubusercontent.com/54464793/151290080-a96b375e-33f1-46a3-ac38-2b7c5fa0a93d.png)
 \
 press end everytime you close the game to unload the cheat
+and right click on the driver [picture 3] then click stop to unload it
+or restart your pc
 
 Have fun with cheating :)
