@@ -22,7 +22,6 @@ using namespace std;
 
 
 ImFont* Verdana, * DefaultFont;
-ImFont* Ariali, * ArialI;
 typedef struct
 {
 	DWORD R;
@@ -89,7 +88,7 @@ auto HealthBar(float x, float y, float w, float h, int phealth)-> VOID
 
 auto DrawOutlinedText(ImFont* pFont, const std::string& text, const ImVec2& pos, float size, ImU32 color, bool center) -> VOID
 {
-	ImGui::PushFont(Ariali);
+	ImGui::PushFont(Verdana);
 	std::stringstream stream(text);
 	std::string line;
 
