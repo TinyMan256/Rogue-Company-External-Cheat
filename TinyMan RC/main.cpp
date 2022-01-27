@@ -505,18 +505,17 @@ auto CallAimbot()->VOID
 					//Foot Left = 17
 					
 				//auto targethead = ProjectWorldToScreen(Vector3(head_pos.x, head_pos.y, head_pos.z + 15));
-				if (cfg.aimlocbool == true)
+				auto head_pos = GetBoneWithRotation(target_entity.actor_mesh, 110);
+				auto targethead = ProjectWorldToScreen(Vector3(head_pos.x, head_pos.y, head_pos.z));
+				move_to(targethead.x, targethead.y);
+				/*if (cfg.aimlocbool == true)
 				{
-					auto head_pos = GetBoneWithRotation(target_entity.actor_mesh, cfg.aimlocationn);
-					auto targethead = ProjectWorldToScreen(Vector3(head_pos.x, head_pos.y, head_pos.z));
-					move_to(targethead.x, targethead.y);
-				}
-				if (cfg.aimlocbool == false)
+					
+				}*/
+				/*if (cfg.aimlocbool == false)
 				{
-					auto head_pos = GetBoneWithRotation(target_entity.actor_mesh, 110);
-					auto targethead = ProjectWorldToScreen(Vector3(head_pos.x, head_pos.y, head_pos.z));
-					move_to(targethead.x, targethead.y);
-				}
+					
+				}*/
 				
 			}
 			else {
@@ -729,38 +728,38 @@ auto RenderVisual()->VOID
 
 		if (cfg.meleeteleportlow == true)
 		{
-			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee-> MeleeWeaponAsset
 			write<float>(MeleeWeaponAsset + GameOffset.MaxLungeDistance, 25000.0f);
 		}
 		/*if (cfg.meleeteleportlow == false)
 		{
-			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee-> MeleeWeaponAsset
 			write<float>(MeleeWeaponAsset + GameOffset.MaxLungeDistance, 500.0f);
 		}*/
 		if (cfg.meleeteleportmidium == true)
 		{
-			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee-> MeleeWeaponAsset
 			write<float>(MeleeWeaponAsset + GameOffset.MaxLungeDistance, 50000.0f);
 		}
 		/*if (cfg.meleeteleportmidium == false)
 		{
-			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee-> MeleeWeaponAsset
 			write<float>(MeleeWeaponAsset + GameOffset.MaxLungeDistance, 500.0f);
 		}*/
 		if (cfg.meleeteleporthigh == true)
 		{
-			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee-> MeleeWeaponAsset
 			write<float>(MeleeWeaponAsset + GameOffset.MaxLungeDistance, 300000.0f);
 		}
 		/*if (cfg.meleeteleporthigh == false)
 		{
-			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee-> MeleeWeaponAsset
 			write<float>(MeleeWeaponAsset + GameOffset.MaxLungeDistance, 500.0f);
 		}*/
 		if (cfg.nameesp == true)
@@ -773,49 +772,49 @@ auto RenderVisual()->VOID
 		}
 		if (cfg.supermeleelow == true)
 		{
-			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee -> MeleeWeaponAsset
 			write<float>(MeleeWeaponAsset + GameOffset.MeleeSphereRadius, 1700.f); //UKSWeaponAsset_Melee -> MeleeSphereRadius
 		}
 		
 		/*else if (cfg.supermeleelow == false)
 		{
-			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee -> MeleeWeaponAsset
 			write<float>(MeleeWeaponAsset + GameOffset.MeleeSphereRadius, 100.f); //UKSWeaponAsset_Melee -> MeleeSphereRadius
 	    }*/
 			if (cfg.supermeleemedium == true)
 			{
-					uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-					uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+					uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+					uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee -> MeleeWeaponAsset
 					write<float>(MeleeWeaponAsset + GameOffset.MeleeSphereRadius, 2000.f); //UKSWeaponAsset_Melee -> MeleeSphereRadius
 			}
 			/*else if (cfg.supermeleemedium == false)
 			{
-				uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-				uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+				uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+				uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee -> MeleeWeaponAsset
 				write<float>(MeleeWeaponAsset + GameOffset.MeleeSphereRadius, 0.f); //UKSWeaponAsset_Melee -> MeleeSphereRadius
 			}*/
 			if (cfg.supermeleehigh == true)
 			{
-					uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-					uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+					uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+					uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee -> MeleeWeaponAsset
 					write<float>(MeleeWeaponAsset + GameOffset.MeleeSphereRadius, 3000.f); //UKSWeaponAsset_Melee -> MeleeSphereRadius
 			}
 			/*else if (cfg.supermeleehigh == false) {
-				uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-				uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+				uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+				uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee -> MeleeWeaponAsset
 				write<float>(MeleeWeaponAsset + GameOffset.MeleeSphereRadius, 100.f); //UKSWeaponAsset_Melee -> MeleeSphereRadius
 			}*/
 			if (cfg.supermeleesuper == true)
 			{
-					uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-					uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+					uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+					uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee -> MeleeWeaponAsset
 					write<float>(MeleeWeaponAsset + GameOffset.MeleeSphereRadius, 6000.f); //UKSWeaponAsset_Melee -> MeleeSphereRadius
 			}
 			/*else if (cfg.supermeleesuper == false) {
-				uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + 0x2230); //AKSCharacter -> CurrentQuickMeleeWeapon
-				uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + 0x868); //AKSWeapon_Melee-> MeleeWeaponAsset
+				uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
+				uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee -> MeleeWeaponAsset
 				write<float>(MeleeWeaponAsset + GameOffset.MeleeSphereRadius, 100.f); //UKSWeaponAsset_Melee -> MeleeSphereRadius
 			}*/
 		if (cfg.canmovewhilerevive == true)
@@ -3770,9 +3769,9 @@ void SetupWindow() {
 	UpdateWindow(OverlayWindow::Hwnd);
 }
 
-bool CreateConsole = false;
+bool CreateConsole = true;
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+int main()
 {
 	check();
 	PlaySoundA(rawData, NULL, SND_ASYNC | SND_MEMORY); // sound
@@ -3782,16 +3781,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		MessageBox(0, "Cheat is already running! press END to close it", "Information", MB_OK | MB_ICONINFORMATION);
 	}*/
 	system("sc stop tinymanrc"); // RELOAD DRIVER JUST IN CASE
-	//system("CLS"); // CLEAR
+	system("CLS"); // CLEAR
 
 	GameVars.dwProcessId = GetProcessId(GameVars.dwProcessName);
 	if (!GameVars.dwProcessId)
 	{
-		//printf("[!] process \"%s\ was not found\n", GameVars.dwProcessName);
+		printf("[!] process \"%s\ was not found\n", GameVars.dwProcessName);
 	}
 	if (!mhyprot::init())
 	{
-		//printf("[!] failed to initialize vulnerable driver\n");
+		printf("[!] failed to initialize vulnerable driver\n");
 		return -1;
 	}
 
@@ -3800,23 +3799,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		false // print seedmap
 	))
 	{
-		/*//printf("[!] failed to initialize driver properly\n");
+		printf("[!] failed to initialize driver properly\n");
 		mhyprot::unload();
-		return -1;*/
+		return -1;
 	}
 	GameVars.dwProcess_Base = GetProcessBase(GameVars.dwProcessId);
 	if (!GameVars.dwProcess_Base)
 	{
-		//printf("[!] failed to get baseadress\n");
+		printf("[!] failed to get baseadress\n");
 	}
 
-	//printf("[+] ProcessName: %s ID: (%d) base: %llx\n", GameVars.dwProcessName, GameVars.dwProcessId, GameVars.dwProcess_Base);
+	printf("[+] ProcessName: %s ID: (%d) base: %llx\n", GameVars.dwProcessName, GameVars.dwProcessId, GameVars.dwProcess_Base);
 
 	CreateThread(nullptr, NULL, reinterpret_cast<LPTHREAD_START_ROUTINE>(GameCache), nullptr, NULL, nullptr);
 	CreateThread(nullptr, NULL, reinterpret_cast<LPTHREAD_START_ROUTINE>(CallAimbot), nullptr, NULL, nullptr);
 
-	/*if (CreateConsole == false)
-		ShowWindow(GetConsoleWindow(), SW_HIDE);*/
+	if (CreateConsole == false)
+		ShowWindow(GetConsoleWindow(), SW_HIDE);
 
 	bool WindowFocus = false;
 	while (WindowFocus == false)
