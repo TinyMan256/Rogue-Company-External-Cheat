@@ -156,7 +156,9 @@ to load it with process hacker
 Now you can run the cheat
 
 press end everytime you close the game to unload the cheat
-and right click on the driver [picture 3] then click stop to unload it
+and right click on the driver [picture 3]
+\
+then click stop to unload it
 or restart your pc
 
 Have fun with cheating :)
