@@ -89,7 +89,7 @@ auto HealthBar(float x, float y, float w, float h, int phealth)-> VOID
 
 auto DrawOutlinedText(ImFont* pFont, const std::string& text, const ImVec2& pos, float size, ImU32 color, bool center) -> VOID
 {
-	ImGui::PushFont(Verdana);
+	ImGui::PushFont(Ariali);
 	std::stringstream stream(text);
 	std::string line;
 
