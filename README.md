@@ -93,7 +93,7 @@ Fake god mode (shows fake player state to enemies)
 
 Menu settings:
 \
-34 Themes
+35 Themes
 \
 open/close hotkey
 \
