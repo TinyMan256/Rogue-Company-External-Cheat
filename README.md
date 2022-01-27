@@ -161,4 +161,14 @@ and right click on the driver [picture 3]
 then click stop to unload it
 or restart your pc
 
+Cheat pics:
+\
+![visuals](https://user-images.githubusercontent.com/54464793/151306410-2e3db0ab-fdf4-402d-9ede-513d96ee4b3e.png)
+\
+![aimbot](https://user-images.githubusercontent.com/54464793/151306429-691519c5-64f4-4e6a-bf6d-bb6a8a7aa283.png)
+\
+![super man](https://user-images.githubusercontent.com/54464793/151306436-ffe7bfc7-9a17-4e96-b308-a277d51cd082.png)
+\
+![settings](https://user-images.githubusercontent.com/54464793/151306451-600847c1-a5b4-47c7-b6c8-09b79b1e9434.png)
+\
 Have fun with cheating :)
