@@ -2,6 +2,10 @@
 RC External cheat updated to latest version
 
 This cheat will be regularly updated to every update
+\
+This Cheat won't work on windows 10 version 21H2
+\
+press windows logo + R then type winver, check your windows version first before doing anything
 
 How to build ?
 \
@@ -145,6 +149,10 @@ to load it with process hacker
 \
 ![3](https://user-images.githubusercontent.com/54464793/151290080-a96b375e-33f1-46a3-ac38-2b7c5fa0a93d.png)
 \
+![driver loaded](https://user-images.githubusercontent.com/54464793/151296505-5b8d48e3-932a-4abc-b9db-1753292a699c.png) Loaded correctly 👍
+\
+Now you can run the cheat
+
 press end everytime you close the game to unload the cheat
 and right click on the driver [picture 3] then click stop to unload it
 or restart your pc
