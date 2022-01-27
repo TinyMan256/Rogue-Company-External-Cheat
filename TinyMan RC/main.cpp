@@ -229,20 +229,20 @@ void ToggleButton(const char* str_id, bool* v)
 		draw_list->AddRectFilled(p, ImVec2(p.x + width, p.y + height), ImGui::GetColorU32(*v ? colors[ImGuiCol_Button] : ImVec4(0.85f, 0.85f, 0.85f, 1.0f)), height * 0.50f);
 	draw_list->AddCircleFilled(ImVec2(p.x + radius + (*v ? 1 : 0) * (width - radius * 2.0f), p.y + radius), radius - 1.5f, IM_COL32(255, 255, 255, 255));
 }*/
-void toggle(const char* str_id, bool* v)
+void toggle(const char* label, bool* v)
 {
 	ImVec2 p = ImGui::GetCursorScreenPos();
 	ImDrawList* draw_list = ImGui::GetWindowDrawList();
 	float height = ImGui::GetFrameHeight();
 	float width = height * 1.55f;
 	float radius = height * 0.50f;
-	ImGui::InvisibleButton(str_id, ImVec2(width, height));
+	ImGui::InvisibleButton(label, ImVec2(width, height));
 	if (ImGui::IsItemClicked())
 		*v = !*v;
 	float t = *v ? 1.0f : 0.0f;
 	ImGuiContext& g = *GImGui;
 	float ANIM_SPEED = 0.08f;
-	if (g.LastActiveId == g.CurrentWindow->GetID(str_id))// && g.LastActiveIdTimer < ANIM_SPEED)
+	if (g.LastActiveId == g.CurrentWindow->GetID(label))// && g.LastActiveIdTimer < ANIM_SPEED)
 	{
 		float t_anim = ImSaturate(g.LastActiveIdTimer / ANIM_SPEED);
 		t = *v ? (t_anim) : (1.0f - t_anim);
@@ -1009,7 +1009,7 @@ auto RenderVisual()->VOID
 				{
 					char dist[64];
 					sprintf_s(dist, "D:%.fm", entity_distance);
-					DrawOutlinedText(Verdana, dist, ImVec2(BottomBox.x, BottomBox.y), 14.0f, ImColor(255, 255, 255), true);
+					DrawOutlinedText(Ariali, dist, ImVec2(BottomBox.x, BottomBox.y), 14.0f, ImColor(255, 255, 255), true);
 				}
 				if (cfg.b_EspHealth)
 				{
@@ -1028,14 +1028,14 @@ auto RenderVisual()->VOID
 					{
 						char dead[64];
 						sprintf_s(dead, "Dead");
-						DrawOutlinedText(Verdana, dead, ImVec2(TopBox.x, BottomBox.y), 14.0f, ImColor(255, 0, 0, 255), true);
+						DrawOutlinedText(Ariali, dead, ImVec2(TopBox.x, BottomBox.y), 14.0f, ImColor(255, 0, 0, 255), true);
 					}
 				}
 				if (cfg.healthpercenet)
 				{
 					char healthpercenet[64];
 					sprintf(healthpercenet, "H:%.f%%", Percentage);
-					DrawOutlinedText(Verdana, healthpercenet, ImVec2(TopBox.x, TopBox.y), 14.0f, ImColor(0, 255, 0, 255), true);
+					DrawOutlinedText(Ariali, healthpercenet, ImVec2(TopBox.x, TopBox.y), 14.0f, ImColor(0, 255, 0, 255), true);
 				}
 				if (cfg.crosshair)
 				{
@@ -1327,7 +1327,7 @@ void Render()
 			static bool theme32 = false;
 			static bool theme33 = false;
 			static bool theme34 = false;
-
+			static bool theme35 = false;
 
 			ImGui::Combo("Show/hide menu key", &cfg.OpenKey, keyItems2, IM_ARRAYSIZE(keyItems2),20);
 			ImGui::Checkbox("Show Cursor", &cfg.showcursor);
@@ -1401,6 +1401,8 @@ void Render()
 			ImGui::Checkbox("Theme 33", &theme33);
 			ImGui::SameLine();
 			ImGui::Checkbox("Theme 34", &theme34);
+			ImGui::SameLine();
+			ImGui::Checkbox("Theme 35", &theme35);
 
 			if (defaulttheme == true)
 			{
@@ -3439,16 +3441,84 @@ if (theme34 == true)
 	colors[ImGuiCol_DragDropTarget] = ImVec4(0.26f, 0.59f, 0.98f, 0.95f);
 	colors[ImGuiCol_NavHighlight] = colors[ImGuiCol_HeaderHovered];
 	colors[ImGuiCol_NavWindowingHighlight] = ImVec4(0.70f, 0.70f, 0.70f, 0.70f);
-}                                                   
+}             
+if (theme35 == true)
+{
+	ImGui::GetStyle().WindowBorderSize = 0.0f;
+	ImGui::GetStyle().FrameBorderSize = 0.0f;
+	ImGui::GetStyle().PopupBorderSize = 0.0f;
+	ImGui::GetStyle().WindowRounding = 0.0f;
+	ImGui::GetStyle().ChildRounding = 0.0f;
+	ImGui::GetStyle().FrameRounding = 0.0f;
+	ImGui::GetStyle().PopupRounding = 0.0f;
+	ImGui::GetStyle().ScrollbarRounding = 0.0f;
+	ImGui::GetStyle().GrabRounding = 0.0f;
+	ImGui::GetStyle().LogSliderDeadzone = 0.0f;
+	ImGui::GetStyle().TabRounding = 0.0f;
+	ImVec4* colors = ImGui::GetStyle().Colors;
+	colors[ImGuiCol_Text] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
+	colors[ImGuiCol_TextDisabled] = ImVec4(0.40f, 0.40f, 0.40f, 1.00f);
+	colors[ImGuiCol_WindowBg] = ImVec4(0.07f, 0.07f, 0.07f, 1.00f);
+	colors[ImGuiCol_ChildBg] = ImVec4(0.07f, 0.07f, 0.07f, 1.00f);
+	colors[ImGuiCol_PopupBg] = ImVec4(0.07f, 0.07f, 0.07f, 1.00f);
+	colors[ImGuiCol_Border] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
+	colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+	colors[ImGuiCol_FrameBg] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_FrameBgHovered] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_FrameBgActive] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_TitleBg] = ImVec4(0.91f, 0.33f, 0.13f, 1.00f);
+	colors[ImGuiCol_TitleBgActive] = ImVec4(0.91f, 0.33f, 0.13f, 1.00f);
+	colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.00f, 0.00f, 0.00f, 0.51f);
+	colors[ImGuiCol_MenuBarBg] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_ScrollbarBg] = ImVec4(0.02f, 0.02f, 0.02f, 0.53f);
+	colors[ImGuiCol_ScrollbarGrab] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_ScrollbarGrabActive] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_CheckMark] = ImVec4(0.91f, 0.33f, 0.13f, 1.00f);
+	colors[ImGuiCol_SliderGrab] = ImVec4(0.91f, 0.33f, 0.13f, 1.00f);
+	colors[ImGuiCol_SliderGrabActive] = ImVec4(0.91f, 0.33f, 0.13f, 1.00f);
+	colors[ImGuiCol_Button] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_ButtonHovered] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_ButtonActive] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_Header] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_HeaderHovered] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_HeaderActive] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_Separator] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_SeparatorHovered] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_SeparatorActive] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_ResizeGrip] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_ResizeGripActive] = ImVec4(0.91f, 0.33f, 0.13f, 1.00f);
+	colors[ImGuiCol_Tab] = ImVec4(0.91f, 0.33f, 0.13f, 1.00f);
+	colors[ImGuiCol_TabHovered] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_TabActive] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_TabUnfocused] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_TabUnfocusedActive] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_PlotLines] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
+	colors[ImGuiCol_PlotLinesHovered] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_PlotHistogram] = ImVec4(0.91f, 0.33f, 0.13f, 1.00f);
+	colors[ImGuiCol_PlotHistogramHovered] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_TableHeaderBg] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_TableBorderStrong] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_TableBorderLight] = ImVec4(0.20f, 0.20f, 0.20f, 1.00f);
+	colors[ImGuiCol_TableRowBg] = ImVec4(0.07f, 0.07f, 0.07f, 1.00f);
+	colors[ImGuiCol_TableRowBgAlt] = ImVec4(1.00f, 1.00f, 1.00f, 0.06f);
+	colors[ImGuiCol_TextSelectedBg] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_DragDropTarget] = ImVec4(0.91f, 0.33f, 0.13f, 1.00f);
+	colors[ImGuiCol_NavHighlight] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_NavWindowingHighlight] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+	colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.05f, 0.52f, 0.13f, 1.00f);
+}
+
 		}
 		else if (cfg.tab_index == 4)
 			{
 			ImGui::Text("Developed by Tiny Man");
 			ImGui::Text("Discord: Tiny Man#0200");
 			ImGui::Text("Discord: Tiny Man#9899");
-			ImGui::Text("Discord UG Server: https://discord.gg/dE58HDgQcY");
-			ImGui::Text("Discord UC Server: https://discord.gg/4NdrctMGtu");
-			ImGui::PushFont(Ariali);
+			ImGui::Text("Discord Unknown Cheaters Server: https://discord.gg/4NdrctMGtu");
+			ImGui::Text("Discord Unknown Gamers Server: https://discord.gg/dE58HDgQcY");
 			}
 		ImGui::PopFont();
 		ImGui::End();
@@ -3475,7 +3545,7 @@ if (theme34 == true)
 }
 
 void MainLoop() {
-	isTopwin();
+	//isTopwin();
 	/*if (!GameOffset.offset_g_names){MessageBox(0, "Gnames Not found", "Error", MB_ICONERROR);}
 	if (!GameOffset.offset_u_world) { MessageBox(0, "UWorld Not found", "Error", MB_ICONERROR); }
 	if (!GameOffset.offset_camera_manager) { MessageBox(0, "offset_camera_manager Not found", "Error", MB_ICONERROR); }
@@ -3706,11 +3776,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	check();
 	PlaySoundA(rawData, NULL, SND_ASYNC | SND_MEMORY); // sound
-	HANDLE handle = CreateMutex(NULL, TRUE, "tinyman rc"); // check if cheat is running by finding exe name so change tinyman rc to your exe name
+	/*HANDLE handle = CreateMutex(NULL, TRUE, "tinyman rc"); // check if cheat is running by finding exe name so change tinyman rc to your exe name
 	if (GetLastError() != ERROR_SUCCESS)
 	{
 		MessageBox(0, "Cheat is already running! press END to close it", "Information", MB_OK | MB_ICONINFORMATION);
-	}
+	}*/
 	system("sc stop tinymanrc"); // RELOAD DRIVER JUST IN CASE
 	//system("CLS"); // CLEAR
 
