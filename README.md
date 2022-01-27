@@ -135,13 +135,11 @@ Discord server: https://discord.gg/4NdrctMGtu
 \
 make sure game is in windowed or borderless (windowed fullscreen)
 \
-make sure the driver is loaded if driver isn't loaded correctly then the cheat won't work
+the driver should load automatically when you run the cheat but if you have a problem with loading driver then the cheat won't work
 \
-goto the %temp% folder and make sure the tinymanrc.sys is there
+goto the %temp% folder and make sure the tinymanrc.sys is there, if you can delete the driver then it's not loaded
 \
-or download process hacker to check if the driver is loaded or not
-\
-to load it with process hacker
+download process hacker and follow these steps
 \
 ![1](https://user-images.githubusercontent.com/54464793/151290084-0497748f-95cf-480e-b34c-09e8845c592d.png)
 \
