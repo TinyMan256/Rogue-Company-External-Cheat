@@ -43,8 +43,8 @@ inline namespace RogueCompany
 	class Offsets : public Singleton<Offsets>
 	{
 	public:
-		DWORD offset_g_names = 0x672d200;
-		DWORD offset_u_world = 0x689be48;
+		DWORD offset_g_names = 0x672d200; // GNames
+		DWORD offset_u_world = 0x689be48; // GWorld
 		DWORD offset_camera_manager = 0x2b8; // APlayerController -> PlayerCameraManager
 		DWORD offset_camera_cache = 0x1aa0; //APlayerCameraManager -> CameraCachePrivate
 		DWORD offset_persistent_level = 0x30; //UWorld -> PersistentLevel
@@ -83,9 +83,11 @@ inline namespace RogueCompany
 		DWORD CurrentOverheal = 0xd80; //AKSCharacterBase -> CurrentOverheal
 		DWORD offset_last_submit_time = 0x2aC; // AServerStatReplicator -> NumRelevantDeletedActors
 		DWORD offset_last_render_time = 0x2b4; // AServerStatReplicator -> NumReplicatedActors
-		DWORD offset_actor_id = 0x18;
-		DWORD offset_bone_array = 0x478;
-		DWORD offset_component_to_world = 0x1c0;
+		DWORD offset_actor_id = 0x18; // actor id
+		DWORD offset_bone_array = 0x478; // bone array
+		DWORD offset_component_to_world = 0x1c0; // component to world
+		DWORD CurrentQuickMeleeWeapon = 0x21f8; //AKSCharacter -> CurrentQuickMeleeWeapon
+		DWORD MeleeWeaponAsset = 0x868; //AKSWeapon_Melee -> MeleeWeaponAsset
 	};
 #define GameOffset RogueCompany::Offsets::Get()
 }
