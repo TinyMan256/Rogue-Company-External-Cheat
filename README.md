@@ -132,6 +132,7 @@ second discord: Tiny Man#9899
 Unkown Cheaters Discord server: https://discord.gg/4NdrctMGtu
 \
 Unknown Gamers discord server: https://discord.gg/dE58HDgQcY
+\
 ================== Important notes ==================
 \
 make sure game is in windowed or borderless (windowed fullscreen)
