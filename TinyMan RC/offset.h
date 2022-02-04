@@ -88,6 +88,7 @@ inline namespace RogueCompany
 		DWORD offset_component_to_world = 0x1c0; // component to world
 		DWORD CurrentQuickMeleeWeapon = 0x21f8; //AKSCharacter -> CurrentQuickMeleeWeapon
 		DWORD MeleeWeaponAsset = 0x868; //AKSWeapon_Melee -> MeleeWeaponAsset
+		DWORD BaseEyeHeight = 0x22c; //APawn -> BaseEyeHeight
 	};
 #define GameOffset RogueCompany::Offsets::Get()
 }
