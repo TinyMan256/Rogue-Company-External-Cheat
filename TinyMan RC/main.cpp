@@ -245,7 +245,7 @@ void toggle(const char* label, bool* v)
 	if (g.LastActiveId == g.CurrentWindow->GetID(label))// && g.LastActiveIdTimer < ANIM_SPEED)
 	{
 		float t_anim = ImSaturate(g.LastActiveIdTimer / ANIM_SPEED);
-		t = *v ? (t_anim) : (1.0f - t_anim);
+		//t = *v ? (t_anim) : (1.0f - t_anim);
 	}
 	ImU32 col_bg;
 	if (ImGui::IsItemHovered())
@@ -365,6 +365,7 @@ typedef struct _EntityList
 {
 	uintptr_t actor_pawn;
 	uintptr_t actor_mesh;
+	uintptr_t actor_state;
 	int actor_id;
 
 }EntityList;
@@ -522,7 +523,6 @@ auto CallAimbot()->VOID
 				continue;
 			}
 			auto head_pos = GetBoneWithRotation(target_entity.actor_mesh, 110);
-			auto targethead = ProjectWorldToScreen(Vector3(head_pos.x, head_pos.y, head_pos.z));
 			if (cfg.triggerbot == true && &head_pos)
 			{
 				mouse_event(MOUSEEVENTF_LEFTDOWN, NULL, NULL, NULL, NULL);
@@ -575,8 +575,12 @@ auto GameCache()->VOID
 			{
 				if (name == "MainCharacter_C" || name == "MainCharacter_Royale_C")
 				{
-					if (actor_mesh != NULL)
+					if (actor_pawn != NULL || actor_id != NULL || actor_state != NULL || actor_mesh != NULL)
 					{
+						EntityList Entity{ };
+						Entity.actor_pawn = actor_pawn;
+						Entity.actor_id = actor_id;
+						Entity.actor_state = actor_state;
 						Entity.actor_mesh = actor_mesh;
 						tmpList.push_back(Entity);
 					}
@@ -586,8 +590,12 @@ auto GameCache()->VOID
 			{
 				if (name == "DefaultPVPBotCharacter_C" || name == "DefaultBotCharacter_C")
 				{
-					if (actor_mesh != NULL)
+					if (actor_pawn != NULL || actor_id != NULL || actor_state != NULL || actor_mesh != NULL)
 					{
+						EntityList Entity{ };
+						Entity.actor_pawn = actor_pawn;
+						Entity.actor_id = actor_id;
+						Entity.actor_state = actor_state;
 						Entity.actor_mesh = actor_mesh;
 						tmpList.push_back(Entity);
 					}
@@ -631,7 +639,7 @@ auto RenderVisual()->VOID
 		}
 		//end no dead esp
 		// bunnyhop
-		if (GetAsyncKeyState(VK_SPACE) && cfg.bunnyhop == true)
+		if (cfg.bunnyhop == true  && GetKeyState(VK_SPACE))
 		{
 			keybd_event(VK_SPACE, 0x39, NULL, NULL);
 			Sleep(10);
@@ -726,6 +734,23 @@ auto RenderVisual()->VOID
 		auto bVisible = isVisible(Entity.actor_mesh);
 		auto ESP_Color = GetVisibleColor(bVisible);
 
+		if (cfg.test == true)
+		{
+			
+		}
+		if (cfg.test2 == true)
+		{
+		}
+		if (cfg.test3 == true)
+		{
+		}
+		if (cfg.ping == true)
+		{
+			auto ping = read<char>(Entity.actor_state + GameOffset.ping);
+			CHAR buffer[64];
+			sprintf(buffer, "%i", ping);
+			DrawOutlinedText(Verdana, buffer, ImVec2(TopBox.x - 35, TopBox.y - 20), 14.0f, ImColor(255, 255, 255), true);
+		}
 		if (cfg.meleeteleportlow == true)
 		{
 			uint64_t CurrentQuickMeleeWeapon = read<uint64_t>(GameVars.local_player_pawn + GameOffset.CurrentQuickMeleeWeapon); //AKSCharacter -> CurrentQuickMeleeWeapon
@@ -762,6 +787,13 @@ auto RenderVisual()->VOID
 			uint64_t MeleeWeaponAsset = read<uint64_t>(CurrentQuickMeleeWeapon + GameOffset.MeleeWeaponAsset); //AKSWeapon_Melee-> MeleeWeaponAsset
 			write<float>(MeleeWeaponAsset + GameOffset.MaxLungeDistance, 500.0f);
 		}*/
+		if (cfg.fullnameesp == true)
+		{
+			//auto Playerstate = read<uintptr_t>(Entity.actor_pawn + GameOffset.offset_player_state);
+			//auto PlayerName = read<FString>(Playerstate + GameOffset.offset_player_name);
+			auto PlayerName = read<FString>(Entity.actor_state + GameOffset.offset_player_name);
+			DrawOutlinedText(Verdana, PlayerName.ToString(), ImVec2(TopBox.x, TopBox.y - 20), 14.0f, ImColor(255, 255, 255), true);
+		}
 		if (cfg.nameesp == true)
 		{
 			auto Playerstate = read<uintptr_t>(Entity.actor_pawn + GameOffset.offset_player_state);
@@ -846,7 +878,7 @@ auto RenderVisual()->VOID
 			write<bool>(m_CharaterBase + GameOffset.bDowned, true); //bdowned
 		}
 		// local
-		if (cfg.disableknocked)
+		if (cfg.disableknocked == true)
 		{
 			auto m_Charatermovement = read<uint64_t>(GameVars.local_player_pawn + 0x288); //CharacterMovement
 			auto m_CharaterBase = read<uint64_t>(m_Charatermovement + 0x858);//KSCharacterOwner
@@ -880,7 +912,7 @@ auto RenderVisual()->VOID
 		{
 		}*/
 		// all downed
-		if (cfg.bdowned)
+		if (cfg.bdowned == true)
 		{
 			auto m_Charatermovement = read<uint64_t>(Entity.actor_pawn + 0x288); //CharacterMovement
 			auto m_CharaterBase = read<uint64_t>(m_Charatermovement + 0x858);//KSCharacterOwner
@@ -997,12 +1029,21 @@ auto RenderVisual()->VOID
 					}
 					if (cfg.LineType == 1)
 					{
-						DrawLine(ImVec2(static_cast<float>(GameVars.ScreenWidth / 2), 0.f), ImVec2(BottomBox.x, BottomBox.y), ESP_Color, 1.5f); //LINE FROM TOP SCREEN
+						DrawLine(ImVec2(static_cast<float>(GameVars.ScreenWidth / 2), 0.f), ImVec2(TopBox.x, TopBox.y), ESP_Color, 1.5f); //LINE FROM TOP SCREEN
 					}
 					if (cfg.LineType == 2)
 					{
 						DrawLine(ImVec2(static_cast<float>(GameVars.ScreenWidth / 2), static_cast<float>(GameVars.ScreenHeight / 2)), ImVec2(BottomBox.x, BottomBox.y), ESP_Color, 1.5f); //LINE FROM CROSSHAIR
 					}
+					if (cfg.LineType == 3)
+					{
+						DrawLine(ImVec2(static_cast<float>(0.f), 0.f), ImVec2(TopBox.x, TopBox.y), ESP_Color, 1.5f); //LINE FROM TOP SCREEN
+					}
+					if (cfg.LineType == 4)
+					{
+						DrawLine(ImVec2(static_cast<float>(GameVars.ScreenWidth / 1), 0.f), ImVec2(TopBox.x, TopBox.y), ESP_Color, 1.5f); //LINE FROM TOP SCREEN
+					}
+
 				}
 				if (cfg.b_EspDistance)
 				{
@@ -1010,31 +1051,52 @@ auto RenderVisual()->VOID
 					sprintf_s(dist, "D:%.fm", entity_distance);
 					DrawOutlinedText(Verdana, dist, ImVec2(BottomBox.x, BottomBox.y), 14.0f, ImColor(255, 255, 255), true);
 				}
-				if (cfg.b_EspHealth)
+				/*if (cfg.b_EspHealth)
 				{
 					auto Health = read<float>(Entity.actor_pawn + GameOffset.offset_health);
 					auto MaxHealth = read<float>(Entity.actor_pawn + GameOffset.offset_max_health);
 					auto Percentage = Health * 100 / MaxHealth;
-						float width = CornerWidth / 10;
+					float width = CornerWidth / 10;
 					if (width < 2.f) width = 2.;
 					if (width > 3) width = 3.;
-
 					HealthBar(TopBox.x - (CornerWidth / 2) - 8, TopBox.y, width, BottomBox.y - TopBox.y, Percentage);
-				}
+				}*/
 				if (cfg.deadesp)
 				{
 					if (Percentage == 0)
 					{
 						char dead[64];
 						sprintf_s(dead, "Dead");
-						DrawOutlinedText(Verdana, dead, ImVec2(TopBox.x, BottomBox.y), 14.0f, ImColor(255, 0, 0, 255), true);
+						DrawOutlinedText(Verdana, dead, ImVec2(TopBox.x, BottomBox.y + 20), 14.0f, ImColor(255, 0, 0, 255), true);
 					}
 				}
 				if (cfg.healthpercenet)
 				{
-					char healthpercenet[64];
-					sprintf(healthpercenet, "H:%.f%%", Percentage);
-					DrawOutlinedText(Verdana, healthpercenet, ImVec2(TopBox.x, TopBox.y), 14.0f, ImColor(0, 255, 0, 255), true);
+					
+					if(Percentage <= 25)
+					{
+						char healthpercenet[64];
+						sprintf(healthpercenet, "H:%.f%%", Percentage);
+						DrawOutlinedText(Verdana, healthpercenet, ImVec2(TopBox.x, TopBox.y), 14.0f, ImColor(255, 38, 0), true);
+					}
+					if (Percentage <= 50 && Percentage >= 25)
+					{
+						char healthpercenet[64];
+						sprintf(healthpercenet, "H:%.f%%", Percentage);
+						DrawOutlinedText(Verdana, healthpercenet, ImVec2(TopBox.x, TopBox.y), 14.0f, ImColor(255, 77, 0), true);
+					}
+					if (Percentage <= 75 && Percentage >= 50)
+					{
+						char healthpercenet[64];
+						sprintf(healthpercenet, "H:%.f%%", Percentage);
+						DrawOutlinedText(Verdana, healthpercenet, ImVec2(TopBox.x, TopBox.y), 14.0f, ImColor(255, 200, 0), true);
+					}
+					if (Percentage <= 100 && Percentage >= 75)
+					{
+						char healthpercenet[64];
+						sprintf(healthpercenet, "H:%.f%%", Percentage);
+						DrawOutlinedText(Verdana, healthpercenet, ImVec2(TopBox.x, TopBox.y), 14.0f, ImColor(0, 255, 0, 255), true);
+					}
 				}
 				if (cfg.crosshair)
 				{
@@ -1165,7 +1227,7 @@ void Render()
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 	RenderVisual();
-
+	
 	if (cfg.b_MenuShow)
 	{
 		cfg.showcursor == true;
@@ -1179,6 +1241,11 @@ void Render()
 	//	ImGui::Begin("TinyMan RC", 0, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar);
 		//ImGui::Begin(RandomString(10).c_str());
 		//ImGui::Begin("Tiny Man Rogue Company [ VIP ]", 0);
+		if (cfg.menufps == true)
+		{
+			ImGui::Text("%.1f fps", ImGui::GetIO().Framerate);
+		}
+		ImGui::SameLine();
 		TabButton("Visual", &cfg.tab_index, 0, true);
 		ImGui::SameLine();
 		TabButton("Aimbot", &cfg.tab_index, 1, false);
@@ -1190,14 +1257,19 @@ void Render()
 		TabButton("Credits", &cfg.tab_index, 4, false);
 		if (cfg.tab_index == 0)
 		{
+			//toggle("", &cfg.test); ImGui::SameLine(); ImGui::Text("1");
+			//toggle("", &cfg.test2); ImGui::SameLine(); ImGui::Text("2");
+			//toggle("", &cfg.test3); ImGui::SameLine(); ImGui::Text("3");
 			ImGui::Checkbox("Enabled Visual", &cfg.b_Visual);
 			ImGui::Checkbox("ESP Line", &cfg.b_EspLine);
-			ImGui::Combo("ESP Line Type", &cfg.LineType, cfg.LineTypes, 3);
+			ImGui::Combo("ESP Line Type", &cfg.LineType, cfg.LineTypes, 5);
 				ImGui::Checkbox("ESP Box", &cfg.b_EspBox);
 				ImGui::Combo("ESP Box Type", &cfg.BoxType, cfg.BoxTypes, 2);
 				ImGui::SliderFloat("Box Width", &cfg.boxwidth, 0.5f, 20.0f);
 			//	ImGui::Checkbox("Crosshair", &cfg.crosshair);
+				ImGui::Checkbox("players ping", &cfg.ping);
 				ImGui::Checkbox("First Letter Name ESP", &cfg.nameesp);
+				ImGui::Checkbox("Full Name ESP", &cfg.fullnameesp);
 				ImGui::Checkbox("Head Circle", &cfg.headcircle);
 				ImGui::SliderFloat("Head Circle size", &cfg.headcirclesize, 0.5f, 100.0f);
 				ImGui::SliderFloat("Head Circle width", &cfg.headcirclewidth, 0.5f, 25.0f);
@@ -1222,7 +1294,7 @@ void Render()
 				ImGui::SliderFloat("Skeleton size", &cfg.skeletonsize, 0.5f, 20.0f);
 				ImGui::Checkbox("ESP Distance", &cfg.b_EspDistance);
 				ImGui::Checkbox("Percentage Of Health", &cfg.healthpercenet);
-				ImGui::Checkbox("ESP HealthBar", &cfg.b_EspHealth);
+				//ImGui::Checkbox("ESP HealthBar", &cfg.b_EspHealth);
 				//ImGui::Checkbox("ESP HealthBar outline", &cfg.healthoutline);
 				ImGui::SliderFloat("Max Distance", &cfg.max_distance, 1.0f, 10000.0f);
 				if (ImGui::ColorEdit3("Visible Color", cfg.fl_VisibleColor, ImGuiColorEditFlags_NoDragDrop))
@@ -1237,7 +1309,7 @@ void Render()
 		else if (cfg.tab_index == 1)
 		{
 			ImGui::Checkbox("Enabled Aimbot", &cfg.b_Aimbot);
-			ImGui::Checkbox("Aimbot Location", &cfg.aimlocbool);
+			//ImGui::Checkbox("Aimbot Location", &cfg.aimlocbool);
 
 				ImGui::Checkbox("Show FOV", &cfg.b_AimbotFOV);
 				//if (cfg.b_AimbotFOV)
@@ -1264,7 +1336,8 @@ void Render()
 			ImGui::Text("\t \t \t \t \n Run super man options before game starts to take effect \n \n");
 			ImGui::Checkbox("Trigger Bot", &cfg.triggerbot); if (ImGui::IsItemHovered())ImGui::SetTooltip("Automatically shooting when aiming at enemies");
 			ImGui::Checkbox("No Recoil", &cfg.norecoil); if (ImGui::IsItemHovered())ImGui::SetTooltip("weapon won't miss any bullet");
-			ImGui::Checkbox("Bunny Hop", &cfg.bunnyhop); if (ImGui::IsItemHovered())ImGui::SetTooltip("Be a rabbit and always jump");
+			ImGui::Checkbox("Bunny Hop", &cfg.bunnyhop); if (ImGui::IsItemHovered())ImGui::SetTooltip("press space once to be a bunny");
+			//ImGui::Checkbox("Bunny Hop 2 [ Hold space ]", &cfg.bunnyhop2); if (ImGui::IsItemHovered())ImGui::SetTooltip("Hold space to be a bunny");
 			ImGui::Checkbox("team collision", &cfg.teamcollision); if (ImGui::IsItemHovered())ImGui::SetTooltip("you can disable no clip in team");
 			ImGui::Checkbox("Immune", &cfg.Immune);if (ImGui::IsItemHovered())ImGui::SetTooltip("Damage landing enemies");
 			ImGui::Checkbox("Fake god mode", &cfg.fakegodmode);if (ImGui::IsItemHovered())ImGui::SetTooltip("Show fake heal stats");
@@ -1287,7 +1360,6 @@ void Render()
 			ImGui::Checkbox("Melee Teleport Midium Range", &cfg.meleeteleportmidium); if (ImGui::IsItemHovered())ImGui::SetTooltip("Teleport to them with melee");
 			ImGui::SameLine();
 			ImGui::Checkbox("Melee Teleport High Range", &cfg.meleeteleporthigh); if (ImGui::IsItemHovered())ImGui::SetTooltip("Teleport to them with melee");
-			toggle("", &cfg.test); ImGui::SameLine(); ImGui::Text("Toggle Button");
 		}
 		else if (cfg.tab_index == 3)
 		{
@@ -1329,6 +1401,7 @@ void Render()
 			static bool theme35 = false;
 
 			ImGui::Combo("Show/hide menu key", &cfg.OpenKey, keyItems2, IM_ARRAYSIZE(keyItems2),20);
+			ImGui::Checkbox("Menu Fps", &cfg.menufps);
 			ImGui::Checkbox("Show Cursor", &cfg.showcursor);
 
 			ImGui::Checkbox("Default Theme", &defaulttheme);
@@ -3769,7 +3842,7 @@ void SetupWindow() {
 	UpdateWindow(OverlayWindow::Hwnd);
 }
 
-bool CreateConsole = true;
+bool CreateConsole = false;
 
 int main()
 {
@@ -3780,7 +3853,7 @@ int main()
 	{
 		MessageBox(0, "Cheat is already running! press END to close it", "Information", MB_OK | MB_ICONINFORMATION);
 	}*/
-	system("sc stop tinymanrc"); // RELOAD DRIVER JUST IN CASE
+	system("sc stop tinymanrc"); // Reload Driver
 	system("CLS"); // CLEAR
 
 	GameVars.dwProcessId = GetProcessId(GameVars.dwProcessName);
@@ -3847,7 +3920,6 @@ int main()
 	ImGuiIO& io = ImGui::GetIO();
 	DefaultFont = io.Fonts->AddFontDefault();
 	Verdana = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\Verdana.ttf", 16.0f);
-
 	io.Fonts->Build();
 
 
