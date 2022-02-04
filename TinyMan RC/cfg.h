@@ -17,16 +17,19 @@ inline namespace Configuration
 	public:
 
 		const char* BoxTypes[2] = { "Full Box","Cornered Box" };
-		const char* LineTypes[3] = { "Bottom To Enemy","Top To Enemy","Crosshair To Enemy" };
+		const char* LineTypes[5] = { "Bottom To Enemy","Top To Enemy","Crosshair To Enemy", "Top left", "Top Right" };
 		bool checkbox = false;
 		bool togglebutton = true;
+		bool fullnameesp = true;
 		bool collision = false;
+		bool ping = false;
 		bool teamcollision = false;
-		bool nameesp = true;
+		bool nameesp = false;
 		bool test = false;
 		bool test2 = false;
 		bool test3 = false;
 		bool bunnyhop = false;
+		bool bunnyhop2 = false;
 		bool meleeteleportlow = false;
 		bool meleeteleportmidium = false;
 		bool meleeteleporthigh = false;
@@ -45,7 +48,7 @@ inline namespace Configuration
 		bool noragdoll = false;
 		bool deadesp = false;
 		bool botsgodmode = false;
-		bool b_MenuShow = false;
+		bool b_MenuShow = true;
 		bool thickskeleton = false;
 		bool headcircle = false;
 		bool enemiesesp = true;
@@ -59,6 +62,7 @@ inline namespace Configuration
 		bool supermeleesuper = false;
 		bool enemygodmode = false;
 		bool healthoutline = false;
+		bool menufps = true;
 		//bool hideconsole = true;
 		bool b_Visual = true;
 		bool fakegodmode = false;
@@ -71,7 +75,7 @@ inline namespace Configuration
 		bool nodownaim = true;
 		bool unlimitedammo = false;
 		bool b_EspDistance = true;
-		bool b_EspHealth = true;
+		bool b_EspHealth = false;
 		bool healthregeneration = false;
 		bool healthregenerationslow = false;
 		bool glow = false;
