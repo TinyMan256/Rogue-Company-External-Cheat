@@ -71,7 +71,7 @@ auto RectFilled(float x0, float y0, float x1, float y1, ImColor color, float rou
 #define max(a,b)            (((a) > (b)) ? (a) : (b))
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
 
-auto HealthBar(float x, float y, float w, float h, int phealth)-> VOID
+/*auto HealthBar(float x, float y, float w, float h, int phealth)-> VOID
 {
 	auto vList = ImGui::GetOverlayDrawList();
 
@@ -84,7 +84,7 @@ auto HealthBar(float x, float y, float w, float h, int phealth)-> VOID
 		vList->AddRect(ImVec2(x - 1, y - 1), ImVec2(x + w + 1, y + h + 1), ImColor(0.f, 0.f, 0.f), 0.0f, 0, 1.0f);
 	}
 	RectFilled(x, y, x + w, y + (int)(((float)h / 100.0f) * (float)phealth), barColor, 0.0f, 0);
-}
+}*/
 
 auto DrawOutlinedText(ImFont* pFont, const std::string& text, const ImVec2& pos, float size, ImU32 color, bool center) -> VOID
 {
