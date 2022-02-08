@@ -51,6 +51,7 @@ inline namespace Configuration
 		bool b_MenuShow = true;
 		bool thickskeleton = false;
 		bool headcircle = false;
+		bool freecam = true;
 		bool enemiesesp = true;
 		bool botsesp = true;
 		bool autoaim = false;
@@ -91,17 +92,24 @@ inline namespace Configuration
 		bool eliminated = false;
 		bool showcursor = true;
 		//ImColor glowcolor = ImColor(255.f / 255, 0.f, 0.f);
-		//float fl_glowcolor[3] = { 0.f,255.f / 255,0.f };  //
+		//float fl_glowcolor[3] = { 0.f,255.f / 255,0.f };
 
 		ImColor VisibleColor = ImColor(255.f / 255, 0.f, 0.f);
-		float fl_VisibleColor[3] = { 0.f,255.f / 255,0.f };  //
+		float fl_VisibleColor[3] = { 0.f,255.f / 255,0.f };
 
 		ImColor InvisibleColor = ImColor(0.f, 255.f / 255, 0.f);
-		float fl_InvisibleColor[3] = { 255.f / 255,0.f,0.f };  //
+		float fl_InvisibleColor[3] = { 255.f / 255,0.f,0.f };
 
 		ImColor FovColor = ImColor(255.f / 255, 0.f, 0.f);
-		float fl_FovColor[3] = { 255.f / 255,0.f,0.f };  //
+		float fl_FovColor[3] = { 255.f / 255,0.f,0.f };
 
+		ImColor fullPlayerName = ImColor( 255.f / 255.f , 0.f , 0.f );
+		float f_fullPlayerName[3] = {255.f / 255.f, 0.f , 0.f };
+
+		ImColor PlayerName = ImColor(255.f / 255.f, 0.f, 0.f);
+		float f_PlayerName[3] = { 255.f / 255.f, 0.f , 0.f };
+
+		float freecamm = 100.0f;
 		float headcirclewidth = 1.5f;
 		float headcirclesize = 15.0f;
 		int BoxType = 1;
