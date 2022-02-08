@@ -431,12 +431,10 @@ auto CallAimbot()->VOID
 				}
 				//team check
 				auto Playerstate = read<uintptr_t>(Entity.actor_pawn + GameOffset.offset_player_state);
-                #define Offset_AKSTeamState 0x398 // AKSPlayerState -> r_Team
-                #define Offset_r_TeamNum 0x220 // AKSTeamState -> r_TeamNum
-				uint64_t LAKSTeamState = read<uint64_t>(GameVars.local_player_state + Offset_AKSTeamState);
-				uint64_t LTeamNum = read<uint64_t>(LAKSTeamState + Offset_r_TeamNum);
-				uint64_t AKSTeamState = read<uint64_t>(Playerstate + Offset_AKSTeamState);
-				uint64_t TeamNum = read<uint64_t>(AKSTeamState + Offset_r_TeamNum);
+				uint64_t LAKSTeamState = read<uint64_t>(GameVars.local_player_state + GameOffset.r_Team);
+				uint64_t LTeamNum = read<uint64_t>(LAKSTeamState + GameOffset.r_TeamNum);
+				uint64_t AKSTeamState = read<uint64_t>(Playerstate + GameOffset.r_Team);
+				uint64_t TeamNum = read<uint64_t>(AKSTeamState + GameOffset.r_TeamNum);
 				if (LTeamNum != TeamNum)
 				{
 					//enemy
@@ -664,12 +662,10 @@ auto RenderVisual()->VOID
 
 			//team check
 		auto Playerstate = read<uintptr_t>(Entity.actor_pawn + GameOffset.offset_player_state);
-         #define Offset_AKSTeamState 0x398 // AKSPlayerState -> r_Team
-         #define Offset_r_TeamNum 0x220 // AKSTeamState -> r_TeamNum
-		uint64_t LAKSTeamState = read<uint64_t>(GameVars.local_player_state + Offset_AKSTeamState);
-		uint64_t LTeamNum = read<uint64_t>(LAKSTeamState + Offset_r_TeamNum);
-		uint64_t AKSTeamState = read<uint64_t>(Playerstate + Offset_AKSTeamState);
-		uint64_t TeamNum = read<uint64_t>(AKSTeamState + Offset_r_TeamNum);
+		uint64_t LAKSTeamState = read<uint64_t>(GameVars.local_player_state + GameOffset.r_Team);
+		uint64_t LTeamNum = read<uint64_t>(LAKSTeamState + GameOffset.r_TeamNum);
+		uint64_t AKSTeamState = read<uint64_t>(Playerstate + GameOffset.r_Team);
+		uint64_t TeamNum = read<uint64_t>(AKSTeamState + GameOffset.r_TeamNum);
 		if (LTeamNum != TeamNum)
 		{
 			//enemy
@@ -736,7 +732,7 @@ auto RenderVisual()->VOID
 
 		if (cfg.test == true)
 		{
-			
+
 		}
 		if (cfg.test2 == true)
 		{
@@ -792,7 +788,7 @@ auto RenderVisual()->VOID
 			//auto Playerstate = read<uintptr_t>(Entity.actor_pawn + GameOffset.offset_player_state);
 			//auto PlayerName = read<FString>(Playerstate + GameOffset.offset_player_name);
 			auto PlayerName = read<FString>(Entity.actor_state + GameOffset.offset_player_name);
-			DrawOutlinedText(Verdana, PlayerName.ToString(), ImVec2(TopBox.x, TopBox.y - 20), 14.0f, ImColor(255, 255, 255), true);
+			DrawOutlinedText(Verdana, PlayerName.ToString(), ImVec2(TopBox.x, TopBox.y - 20), 14.0f, cfg.fullPlayerName, true);
 		}
 		if (cfg.nameesp == true)
 		{
@@ -800,7 +796,7 @@ auto RenderVisual()->VOID
 			auto FPlayerName = read<FString>(read<uint64_t>(Playerstate + GameOffset.offset_player_name));
 			CHAR buffer[64];
 			sprintf_s(buffer, "%s", FPlayerName);
-			DrawOutlinedText(Verdana, buffer, ImVec2(pelvisbox.x, pelvisbox.y), 15.0f, ImColor(128, 0, 128, 255), true);
+			DrawOutlinedText(Verdana, buffer, ImVec2(pelvisbox.x, pelvisbox.y), 15.0f, cfg.PlayerName, true);
 		}
 		if (cfg.supermeleelow == true)
 		{
@@ -889,7 +885,7 @@ auto RenderVisual()->VOID
 		{
 			auto m_Charatermovement = read<uint64_t>(Entity.actor_pawn + 0x288); //CharacterMovement
 			auto m_CharaterBase = read<uint64_t>(m_Charatermovement + 0x858);//KSCharacterOwner
-			write<float>(m_CharaterBase + GameOffset.Health, 999.0f);// AKSCharacterFoundation -> Health
+			write<float>(m_CharaterBase + GameOffset.offset_health, 999.0f);// AKSCharacterFoundation -> Health
 		}
 		/*if (cfg.unlimitedammo == true)
 		{
@@ -1230,8 +1226,11 @@ void Render()
 	
 	if (cfg.b_MenuShow)
 	{
+		if (ImGui::GetIO().MouseClicked[1])
+			{
+			}
 		cfg.showcursor == true;
-		InputHandler();
+		//InputHandler();
 		//ImGui::SetWindowSize(ImVec2(813, 589)); // width, height
 	//	ImGui::SetWindowPos(ImVec2(300, 70));
 		ImGuiStyle* style = &ImGui::GetStyle();
@@ -1257,31 +1256,51 @@ void Render()
 		TabButton("Credits", &cfg.tab_index, 4, false);
 		if (cfg.tab_index == 0)
 		{
-			//toggle("", &cfg.test); ImGui::SameLine(); ImGui::Text("1");
-			//toggle("", &cfg.test2); ImGui::SameLine(); ImGui::Text("2");
-			//toggle("", &cfg.test3); ImGui::SameLine(); ImGui::Text("3");
+			/*toggle("", &cfg.test); ImGui::SameLine(); ImGui::Text("1");
+			toggle("", &cfg.test2); ImGui::SameLine(); ImGui::Text("2");
+			toggle("", &cfg.test3); ImGui::SameLine(); ImGui::Text("3");*/
 			ImGui::Checkbox("Enabled Visual", &cfg.b_Visual);
 			ImGui::Checkbox("ESP Line", &cfg.b_EspLine);
 			ImGui::Combo("ESP Line Type", &cfg.LineType, cfg.LineTypes, 5);
 				ImGui::Checkbox("ESP Box", &cfg.b_EspBox);
 				ImGui::Combo("ESP Box Type", &cfg.BoxType, cfg.BoxTypes, 2);
 				ImGui::SliderFloat("Box Width", &cfg.boxwidth, 0.5f, 20.0f);
+				ImGui::Checkbox("GLOW", &cfg.glow);
 			//	ImGui::Checkbox("Crosshair", &cfg.crosshair);
+				ImGui::SameLine();
 				ImGui::Checkbox("players ping", &cfg.ping);
-				ImGui::Checkbox("First Letter Name ESP", &cfg.nameesp);
 				ImGui::Checkbox("Full Name ESP", &cfg.fullnameesp);
+				ImGui::SameLine();
+				ImGui::SetNextItemWidth(150);
+				if (ImGui::ColorEdit3("Player Name Color", cfg.f_fullPlayerName, ImGuiColorEditFlags_NoDragDrop))
+				{
+					cfg.fullPlayerName = ImColor(cfg.f_fullPlayerName[0], cfg.f_fullPlayerName[1], cfg.f_fullPlayerName[2]);
+				}
+				ImGui::Checkbox("First Letter Name ESP", &cfg.nameesp);
+				ImGui::SameLine();
+				ImGui::SetNextItemWidth(150);
+				if (ImGui::ColorEdit3("First letter Color", cfg.f_PlayerName, ImGuiColorEditFlags_NoDragDrop))
+				{
+					cfg.PlayerName = ImColor(cfg.f_PlayerName[0], cfg.f_PlayerName[1], cfg.f_PlayerName[2]);
+				}
 				ImGui::Checkbox("Head Circle", &cfg.headcircle);
 				ImGui::SliderFloat("Head Circle size", &cfg.headcirclesize, 0.5f, 100.0f);
 				ImGui::SliderFloat("Head Circle width", &cfg.headcirclewidth, 0.5f, 25.0f);
 				ImGui::Checkbox("Dead ESP", &cfg.deadesp);
+				ImGui::SameLine();
 				ImGui::Checkbox("Self ESP", &cfg.selfesp);
+				ImGui::SameLine();
 				ImGui::Checkbox("Remove Dead Bodies ESP", &cfg.Nodieesp);
+				ImGui::SameLine();
 				ImGui::Checkbox("Enemies esp", &cfg.enemiesesp);
 				ImGui::Checkbox("Remove Knocked enemies esp", &cfg.nodownesp);
+				ImGui::SameLine();
 				ImGui::Checkbox("Friends esp", &cfg.friendsesp);
+				ImGui::SameLine();
 				ImGui::Checkbox("Bots esp", &cfg.botsesp);
+				ImGui::SameLine();
+				ImGui::Checkbox("Percentage Of Health", &cfg.healthpercenet);
 				//ImGui::Checkbox("Loot esp", &cfg.lootesp);
-				ImGui::Checkbox("GLOW", &cfg.glow);
 				//ImGui::Checkbox("GLOW Color", &cfg.glowcolor);
 				/*if (ImGui::ColorEdit3("Glow Color", cfg.fl_glowcolor, ImGuiColorEditFlags_NoDragDrop))
 				{
@@ -1293,7 +1312,6 @@ void Render()
 				ImGui::Checkbox("Thick Skeleton", &cfg.thickskeleton);
 				ImGui::SliderFloat("Skeleton size", &cfg.skeletonsize, 0.5f, 20.0f);
 				ImGui::Checkbox("ESP Distance", &cfg.b_EspDistance);
-				ImGui::Checkbox("Percentage Of Health", &cfg.healthpercenet);
 				//ImGui::Checkbox("ESP HealthBar", &cfg.b_EspHealth);
 				//ImGui::Checkbox("ESP HealthBar outline", &cfg.healthoutline);
 				ImGui::SliderFloat("Max Distance", &cfg.max_distance, 1.0f, 10000.0f);
