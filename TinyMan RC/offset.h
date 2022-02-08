@@ -43,8 +43,8 @@ inline namespace RogueCompany
 	class Offsets : public Singleton<Offsets>
 	{
 	public:
-		DWORD offset_g_names = 0x672d200; // GNames
-		DWORD offset_u_world = 0x689be48; // GWorld
+		DWORD offset_g_names = 0x689c100; // GNames
+		DWORD offset_u_world = 0x6a0ae18; // GWorld
 		DWORD offset_camera_manager = 0x2b8; // APlayerController -> PlayerCameraManager
 		DWORD offset_camera_cache = 0x1aa0; //APlayerCameraManager -> CameraCachePrivate
 		DWORD offset_persistent_level = 0x30; //UWorld -> PersistentLevel
@@ -59,36 +59,38 @@ inline namespace RogueCompany
 		DWORD offset_actor_mesh = 0x280; //ACharacter -> Mesh
 		DWORD offset_relative_location = 0x11c; //USceneComponent -> RelativeLocation
 		DWORD offset_health = 0x528; //AKSCharacterFoundation -> Health
-		DWORD offset_max_health = 0x287c; //AKSCharacter -> CachedMaxHealth
+		DWORD offset_max_health = 0x2894; //AKSCharacter -> CachedMaxHealth
 		DWORD offset_player_name = 0x300; // APlayerState -> PlayerNamePrivate
 		DWORD BaseAccuracy = 0x68c; // UKSWeaponAsset -> BaseAccuracy
-		DWORD bDowned = 0x28b9; // AKSCharacter -> bDowned
+		DWORD bDowned = 0x28c1; // AKSCharacter -> bDowned
 		DWORD offset_bKickbackEnabled = 0xaf8; // AKSPlayerController -> bKickbackEnabled
-		DWORD bInRagdoll = 0x2e60; // AKSCharacter -> bInRagdoll
-		DWORD bCanMoveWhileRevivingOther = 0x2a48; // AKSCharacter -> bCanMoveWhileRevivingOther
+		DWORD bInRagdoll = 0x2e68; // AKSCharacter -> bInRagdoll
+		DWORD bCanMoveWhileRevivingOther = 0x2a50; // AKSCharacter -> bCanMoveWhileRevivingOther
 		DWORD ping = 0x228; // APlayerState -> Ping
 		DWORD r_Team = 0x398; // AKSPlayerState -> r_Team
 		DWORD r_TeamNum = 0x220; // AKSTeamState -> r_TeamNum
 		DWORD EliminatedState = 0x448; // AKSPlayerState -> EliminatedState
 		DWORD TimeDilation = 0x2e8; // AWorldSettings -> TimeDilation
-		DWORD ActiveWeaponComponent = 0x22b8; // AKSCharacter -> ActiveWeaponComponent[0xb]
+		DWORD ActiveWeaponComponent = 0x22d0; // AKSCharacter -> ActiveWeaponComponent[0xb]
 		DWORD WeaponAsset = 0x130; // UKSWeaponComponent -> WeaponAsset
 		DWORD bUnlimitedAmmo = 0x3e0; // UKSWeaponAsset -> bUnlimitedAmmo
 		DWORD MaxLungeDistance = 0x9b4; //UKSWeaponAsset_Melee -> MaxLungeDistance
 		DWORD MeleeSphereRadius = 0x994; //UKSWeaponAsset_Melee -> MeleeSphereRadius
-		DWORD Health = 0x528; //AKSCharacterFoundation -> Health
-		DWORD bRevealed = 0x12d4; //AKSCharacterBase -> bRevealed
-		DWORD bIsSpawnImmune = 0x14f0; //AKSCharacterBase -> bIsSpawnImmune
+		DWORD bRevealed = 0x12dc; //AKSCharacterBase -> bRevealed
+		DWORD bIsSpawnImmune = 0x14f8; //AKSCharacterBase -> bIsSpawnImmune
 		DWORD bIgnoreCollisionWithTeammates = 0x4dd; //AKSCharacterFoundation -> bIgnoreCollisionWithTeammates
 		DWORD CurrentOverheal = 0xd80; //AKSCharacterBase -> CurrentOverheal
-		DWORD offset_last_submit_time = 0x2aC; // AServerStatReplicator -> NumRelevantDeletedActors
+		DWORD offset_last_submit_time = 0x2ac; // AServerStatReplicator -> NumRelevantDeletedActors
 		DWORD offset_last_render_time = 0x2b4; // AServerStatReplicator -> NumReplicatedActors
 		DWORD offset_actor_id = 0x18; // actor id
 		DWORD offset_bone_array = 0x478; // bone array
 		DWORD offset_component_to_world = 0x1c0; // component to world
-		DWORD CurrentQuickMeleeWeapon = 0x21f8; //AKSCharacter -> CurrentQuickMeleeWeapon
+		DWORD CurrentQuickMeleeWeapon = 0x2210; //AKSCharacter -> CurrentQuickMeleeWeapon
 		DWORD MeleeWeaponAsset = 0x868; //AKSWeapon_Melee -> MeleeWeaponAsset
 		DWORD BaseEyeHeight = 0x22c; //APawn -> BaseEyeHeight
+		DWORD AmmoInClip = 0x4a4; //AKSWeapon -> AmmoInClip
+		DWORD ClipSize = 0x4a8; //AKSWeapon -> ClipSize
+		DWORD DefaultFOV = 0x238; //APlayerCameraManager -> DefaultFOV
 	};
 #define GameOffset RogueCompany::Offsets::Get()
 }
