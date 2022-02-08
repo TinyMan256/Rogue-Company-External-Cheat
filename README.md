@@ -170,5 +170,9 @@ Cheat pics:
 ![super man](https://user-images.githubusercontent.com/54464793/151306436-ffe7bfc7-9a17-4e96-b308-a277d51cd082.png)
 \
 ![settings](https://user-images.githubusercontent.com/54464793/151306451-600847c1-a5b4-47c7-b6c8-09b79b1e9434.png)
-\
+
+press end everytime you close the game
+
+restart your pc everytime you close the game if you don't want to get banned on another game using battleye anticheat
+
 Have fun with cheating :)
