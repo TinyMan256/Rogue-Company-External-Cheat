@@ -175,4 +175,4 @@ press end everytime you close the game
 
 restart your pc everytime you close the game if you don't want to get banned on another game using battleye anticheat
 
-Have fun with cheating :)
+Have fun while cheating :)
