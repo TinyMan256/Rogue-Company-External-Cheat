@@ -44,7 +44,7 @@ inline namespace RogueCompany
 	{
 	public:
 		DWORD offset_g_names = 0x689c100; // GNames
-		DWORD offset_u_world = 0x6a0ae18; // GWorld
+		DWORD offset_u_world = 0x6a0adf8; // GWorld
 		DWORD offset_camera_manager = 0x2b8; // APlayerController -> PlayerCameraManager
 		DWORD offset_camera_cache = 0x1aa0; //APlayerCameraManager -> CameraCachePrivate
 		DWORD offset_persistent_level = 0x30; //UWorld -> PersistentLevel
