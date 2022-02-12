@@ -101,7 +101,7 @@ Menu settings:
 \
 open/close hotkey
 \
-curosr visibility
+cursor visibility
 
 Hotkeys:
 \
