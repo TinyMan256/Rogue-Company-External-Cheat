@@ -105,11 +105,11 @@ cursor visibility
 
 Hotkeys:
 \
-Home to show / hide menu customizable
+Home to show / hide menu (customizable)
 \
-F1 to enable / disable aimbot customizable
+F1 to enable / disable aimbot (customizable)
 \
-End to close the cheat customizable
+End to close the cheat (customizable)
 
 Super melee: https://user-images.githubusercontent.com/54464793/150986345-0ce819a3-a004-41d3-8358-9408eeba49f5.mp4
 \
