@@ -139,7 +139,7 @@ make sure game is in windowed or borderless (windowed fullscreen)
 \
 the driver should load automatically when you run the cheat but if you have a problem with loading driver then the cheat won't work
 \
-goto the %temp% folder and make sure the tinymanrc.sys is there, if you can delete the driver then it's not loaded
+goto the %temp% folder and make sure the tinyman.sys is there, if you can delete the driver then it's not loaded
 \
 download process hacker and follow these steps
 \
@@ -154,13 +154,7 @@ download process hacker and follow these steps
 [picture 4] the driver is loaded correctly 👍
 \
 Now you can run the cheat
-
-press end everytime you close the game to unload the cheat
-and right click on the driver [picture 3]
 \
-then click stop to unload it
-or restart your pc
-
 Cheat pics:
 \
 ![visuals](https://user-images.githubusercontent.com/54464793/151306410-2e3db0ab-fdf4-402d-9ede-513d96ee4b3e.png)
