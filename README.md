@@ -2,13 +2,11 @@
 The cheat will be updated in a few hours
 RC External cheat updated to latest version
 
+The cheat is working on all windows versions
+
 This cheat will be regularly updated to every update
 \
-This Cheat won't work on windows 10 version 21H2
-\
-press windows logo + R then type winver, check your windows version first before doing anything
-
-How to build ?
+How to build the source code ?
 \
 Use C++17
 \
@@ -20,9 +18,9 @@ https://www.microsoft.com/en-us/download/details.aspx?id=6812
 
 Include: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include
 \
-Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64    [ for x64 ]
+Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64
 \
-Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86    [ for x86 ]
+Build with release x64
 
 How to update the cheat ?
 \
@@ -98,7 +96,7 @@ Fake god mode (shows fake player state to enemies)
 
 Menu settings:
 \
-35 Themes
+30 Themes
 \
 open/close hotkey
 \
@@ -106,11 +104,11 @@ cursor visibility
 
 Hotkeys:
 \
-Home to show / hide menu
+Home to show / hide menu customizable
 \
-F1 to enable / disable aimbot
+F1 to enable / disable aimbot customizable
 \
-End to close the cheat
+End to close the cheat customizable
 
 Super melee: https://user-images.githubusercontent.com/54464793/150986345-0ce819a3-a004-41d3-8358-9408eeba49f5.mp4
 \
@@ -171,9 +169,5 @@ Cheat pics:
 ![super man](https://user-images.githubusercontent.com/54464793/151306436-ffe7bfc7-9a17-4e96-b308-a277d51cd082.png)
 \
 ![settings](https://user-images.githubusercontent.com/54464793/151306451-600847c1-a5b4-47c7-b6c8-09b79b1e9434.png)
-
-press end everytime you close the game
-
-restart your pc everytime you close the game if you don't want to get banned on another game using battleye anticheat
 
 Have fun while cheating :)
