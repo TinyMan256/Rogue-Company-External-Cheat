@@ -1,14 +1,19 @@
 # Rogue-Company-External-Cheat
 The cheat will be updated in a few hours
-\
+
+
 RC External cheat updated to latest version
-\
+
+
 The cheat is working on all windows versions
-\
+
+
 This cheat will be regularly updated to every update
-\
+
+
 How to build the source code ?
-\
+
+
 Use C++17
 \
 Character set: Use Multi-Byte Character Set
