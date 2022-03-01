@@ -74,10 +74,10 @@ auto HealthBar(float x, float y, float w, float h, int phealth)-> VOID
 
 	int barColor = ImColor
 	(min(510 * (100 - healthValue) / 100, 255), min(510 * healthValue / 100, 255),25,255);
-	if (cfg.healthbaroutline)
+	/*if (cfg.healthbaroutline)
 	{
 		vList->AddRect(ImVec2(x - 1, y - 1), ImVec2(x + w + 1, y + h + 1), cfg.hboutline);
-	}
+	}*/
 	RectFilled(x, y, x + w, y + (((float)h / 100.0f) * (float)phealth), barColor, 0.0f, 0);
 }
 
