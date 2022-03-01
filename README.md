@@ -14,10 +14,11 @@ use this blank name in steam so no one can record you
 
 Blank name: [᲼]
 
-[sadly you cannot use it in epic games]
-( cause hi-rez kids are recording cheaters nowadays and sending them to hi-rez)
+sadly you cannot use it in epic games
+cause hi-rez kids are recording cheaters nowadays and sending them to hi-rez
 
 How to update the cheat ?
+\
 goto offset.h and https://rc.dumps.host/
 
 Cheat features: images below
