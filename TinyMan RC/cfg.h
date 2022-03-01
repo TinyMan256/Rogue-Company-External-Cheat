@@ -209,7 +209,7 @@ inline namespace Configuration
 		int OpenKey = 0;
 		int AimBotKey = 14;
 		int UnloadKey = 0;
-		int CloseGameKey = 22;
+		int CloseGameKey = 25;
 		float fakehealth = 900.0f;
 		float Smoothing = 0.500f;
 		float AimbotFOV = 300.0f;
