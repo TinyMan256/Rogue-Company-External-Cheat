@@ -57,7 +57,7 @@ F1 to enable / disable aimbot (customizable)
 \
 End to close the cheat (customizable)
 \
-F7 to close the game (customizable)
+F10 to close the game (customizable)
 
 Some videos:
 
