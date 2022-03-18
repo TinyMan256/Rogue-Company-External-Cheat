@@ -2,8 +2,6 @@
 
 The cheat is outdated use lite version
 
-This cheat will be regularly updated to every update
-
 The cheat is now working on every version of windows
 
 the BSOD ( blue screen of death ) is now fixed
