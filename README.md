@@ -1,6 +1,6 @@
 # Rogue-Company-External-Cheat v1.4 Rage update
 
-The cheat is outdated right now wait for the new version
+The cheat is outdated use lite version
 
 This cheat will be regularly updated to every update
 
