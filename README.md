@@ -1,83 +1,58 @@
 # Rogue-Company-External-Cheat v1.4 Rage update
 
-The cheat is outdated use lite version
+The cheat is outdated use lite version until I update this version
 
-The cheat is now working on every version of windows
+The cheat is working on every windows version
 
-the BSOD ( blue screen of death ) is now fixed
+you can save / load settings
 
-you can now save / load settings
+use this blank name in steam so no one can record you  
+Blank name: [᲼]  
+you cannot use it in epic games
 
-use this blank name in steam so no one can record you
-
-Blank name: [᲼]
-
-sadly you cannot use it in epic games
-\
-cause hi-rez kids are recording cheaters nowadays and sending them to hi-rez
-
-How to update the cheat ?
-\
+How to update the cheat ?  
 goto offset.h and https://rc.dumps.host/
 
-Cheat features: images below
+Cheat features: images below  
 Change game settings to borderless or windowed
-Run batch file if you can't run the cheat
+Run batch file if the cheat not working
 
 How to build the source code ?
 
 
-Use C++17
-\
-Use Multi-Byte Character Set
-\
-Download and install Microsoft DirectX SDK june 2010 (572 MB):
-\
-https://www.microsoft.com/en-us/download/details.aspx?id=6812
-\
-Include: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include
-\
-Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64
-\
+Use C++17  
+Use Multi-Byte Character Set  
+Download and install Microsoft DirectX SDK june 2010 (572 MB):  
+https://www.microsoft.com/en-us/download/details.aspx?id=6812  
+Include: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include  
+Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64  
 Build with release x64
 
-How to update the cheat ?
-\
+How to update the cheat ?  
 open offset.h and goto : https://rc.dumps.host
 
 Cheat Features:
 
-Hotkeys:
-\
-Home to show / hide menu (customizable)
-\
-F1 to enable / disable aimbot (customizable)
-\
-End to close the cheat (customizable)
-\
+Hotkeys:  
+Home to show / hide menu (customizable)  
+F1 to enable / disable aimbot (customizable)  
+End to close the cheat (customizable)  
 F10 to close the game (customizable)
 
 Some videos:
 
-Super melee: https://user-images.githubusercontent.com/54464793/150986345-0ce819a3-a004-41d3-8358-9408eeba49f5.mp4
-\
-Melee teleport: https://vimeo.com/manage/videos/661634864
-\
-Norecoil: https://vimeo.com/669820262
-\
+Super melee: https://user-images.githubusercontent.com/54464793/150986345-0ce819a3-a004-41d3-8358-9408eeba49f5.mp4  
+Melee teleport: https://vimeo.com/manage/videos/661634864  
+Norecoil: https://vimeo.com/669820262  
 Aimbot: https://vimeo.com/669826210
-\
 
 Virus total: https://www.virustotal.com/gui/file/f1993b18de549076c7da9e63347b124b3d99dce7fca158427a8e99756fb30b79?nocache=1
 
-Join discord server if you need any help:
-\
-Unkown Cheaters Discord server: https://discord.gg/4NdrctMGtu
-\
+Join discord server if you need any help:  
+Unkown Cheaters Discord server: https://discord.gg/4NdrctMGtu  
 Unknown Gamers discord server: https://discord.gg/dE58HDgQcY
 
-Everything will be unloaded when you close the game or press end
-\
+Everything will be unloaded when you close the game or press end  
 So don't worry about getting ban in another game
 
 Cheat pics:
