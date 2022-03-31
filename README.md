@@ -1,5 +1,15 @@
 # Rogue-Company-External-Cheat v1.4 Rage update
+```yaml
+- Important🟢
+```
+use md5 everytime before opening any cheat  
+this will change the cheat signature  
+so it will protect you from getting banned if shit-rez detected it  
+click on browse, choose the cheat then click on change hash then close it,
+you don't need to do it again  
+md5: https://cdn.discordapp.com/attachments/955799702119522374/958840527304937472/MD5_Changer.rar  
 
+the cheat will be undetected if it's detected
 The cheat is outdated use lite version until I update this version
 
 The cheat is working on every windows version
@@ -48,9 +58,8 @@ Aimbot: https://vimeo.com/669826210
 
 Virus total: https://www.virustotal.com/gui/file/f1993b18de549076c7da9e63347b124b3d99dce7fca158427a8e99756fb30b79?nocache=1
 
-Join discord server if you need any help:  
+Join discord server if you need any help / free skin changer cheat:  
 Unkown Cheaters Discord server: https://discord.gg/4NdrctMGtu  
-Unknown Gamers discord server: https://discord.gg/dE58HDgQcY
 
 Everything will be unloaded when you close the game or press end  
 So don't worry about getting ban in another game
