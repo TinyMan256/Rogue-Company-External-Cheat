@@ -2,7 +2,7 @@
 ```yaml
 - Important🟢
 ```
-use md5 everytime before opening any cheat  
+use md5 only one time before opening the cheat   
 this will change the cheat signature  
 so it will protect you from getting banned if shit-rez detected it  
 click on browse, choose the cheat then click on change hash then close it,
