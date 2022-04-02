@@ -59,7 +59,7 @@ Aimbot: https://vimeo.com/669826210
 Virus total: https://www.virustotal.com/gui/file/f1993b18de549076c7da9e63347b124b3d99dce7fca158427a8e99756fb30b79?nocache=1
 
 Join discord server if you need any help / free skin changer cheat:  
-Unkown Cheaters Discord server: https://discord.gg/4NdrctMGtu  
+Unkown Cheaters Discord server: https://discord.gg/MKxrtessSF
 
 Everything will be unloaded when you close the game or press end  
 So don't worry about getting ban in another game
