@@ -1,6 +1,6 @@
 # Rogue-Company-External-Cheat v1.4 Rage update
 
-Join discord server if you need any help / free skin changer cheat:  
+Join discord server if you want updated version of the cheat / every update will be there:  
 Unkown Cheaters Discord server: https://discord.gg/MKxrtessSF
 ```yaml
 - Important🟢
