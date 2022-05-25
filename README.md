@@ -1,7 +1,7 @@
 # Rogue-Company-External-Cheat v1.4 Rage update
 
 Join discord server if you want updated version of the cheat / every update will be there:  
-Unkown Cheaters Discord server: https://discord.gg/MfwZr53ADw
+Unkown Cheaters Discord server: https://discord.gg/bzdjT2W84n
 ```yaml
 - Important🟢
 ```
