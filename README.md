@@ -16,8 +16,6 @@ you don't need to do it again
 the cheat will be undetected if it's detected  
 md5: https://cdn.discordapp.com/attachments/955799702119522374/958840527304937472/MD5_Changer.rar  
 
-The cheat is outdated use lite version until I update this version
-
 The cheat is working on every windows version
 
 you can save / load settings
