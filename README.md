@@ -1,6 +1,6 @@
 # Rogue-Company-External-Cheat v1.4 Rage update
 
-I removed the source code due to there is alot of people modifying the cheat tilte and name then selling it  
+I removed the source code due to there is alot of people modifying the cheat title then selling it  
 but you can get latest version of the cheat from the server here https://discord.gg/EfVGsvGX3F
 
 Join discord server if you want updated version of the cheat / every update will be there:  
