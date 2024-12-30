@@ -1,39 +1,17 @@
 # Rogue-Company-External-Cheat v1.4 Rage update
 
-I removed the source code due to there is alot of people modifying the cheat title then selling it  
-but you can get latest version of the cheat from the server here https://discord.gg/EfVGsvGX3F
-
-Join discord server if you want updated version of the cheat / every update will be there:  
-Unknown Cheaters Discord server: https://discord.gg/bzdjT2W84n
+I have removed the source code due to a large number of people modifying the cheat title and then selling it
 ```yaml
 - Important🟢
 ```
-use md5 only one time before opening the cheat   
-this will change the cheat signature  
-so it will protect you from getting banned if shit-rez detected it  
-click on browse, choose the cheat then click on change hash then close it,
-you don't need to do it again  
-the cheat will be undetected if it's detected  
-md5: https://cdn.discordapp.com/attachments/955799702119522374/958840527304937472/MD5_Changer.rar  
-
-The cheat is working on every windows version
-
-you can save / load settings
-
 use this blank name in steam so no one can record you  
 Blank name: [᲼]  
 you cannot use it in epic games
 
-How to update the cheat ?  
-goto offset.h and https://rc.dumps.host/
-
-Cheat features: images below  
 Change game settings to borderless or windowed
 Run batch file if the cheat not working
 
 How to build the source code ?
-
-
 Use C++17  
 Use Multi-Byte Character Set  
 Download and install Microsoft DirectX SDK june 2010 (572 MB):  
@@ -42,19 +20,15 @@ Include: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include
 Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64  
 Build with release x64
 
-How to update the cheat ?  
-open offset.h and goto : https://rc.dumps.host
-
 Cheat Features:
-
 Hotkeys:  
 Home to show / hide menu (customizable)  
 F1 to enable / disable aimbot (customizable)  
 End to close the cheat (customizable)  
 F10 to close the game (customizable)
+you can save / load settings
 
 Some videos:
-
 Super melee: https://user-images.githubusercontent.com/54464793/150986345-0ce819a3-a004-41d3-8358-9408eeba49f5.mp4  
 Melee teleport: https://vimeo.com/manage/videos/661634864  
 Norecoil: https://vimeo.com/669820262  
