@@ -21,7 +21,6 @@ Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64
 Build with release x64
 
 Cheat Features:
-
 Hotkeys:  
 Home to show / hide menu (customizable)  
 F1 to enable / disable aimbot (customizable)  
