@@ -13,7 +13,7 @@ Run batch file if the cheat not working
 How to build the source code:  
 Use C++17  
 Use Multi-Byte Character Set  
-Download and install Microsoft DirectX SDK june 2010 (572 MB):  
+Download and install Microsoft DirectX SDK june 2010  
 https://www.microsoft.com/en-us/download/details.aspx?id=6812  
 Include: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include  
 Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64  
