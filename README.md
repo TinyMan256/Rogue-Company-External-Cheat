@@ -10,8 +10,7 @@ you cannot use it in epic games
 Change game settings to borderless or windowed
 Run batch file if the cheat not working
 
-How to build the source code ?
-
+How to build the source code ?  
 Use C++17  
 Use Multi-Byte Character Set  
 Download and install Microsoft DirectX SDK june 2010 (572 MB):  
@@ -28,8 +27,7 @@ End to close the cheat (customizable)
 F10 to close the game (customizable)
 you can save / load settings
 
-Some videos:
-
+Some videos:  
 Super melee: https://user-images.githubusercontent.com/54464793/150986345-0ce819a3-a004-41d3-8358-9408eeba49f5.mp4  
 Melee teleport: https://vimeo.com/manage/videos/661634864  
 Norecoil: https://vimeo.com/669820262  
