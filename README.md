@@ -7,11 +7,11 @@ I have removed the source code due to a large number of people modifying the che
 use this blank name in steam so no one can record you  
 Blank name: [᲼]  
 you cannot use it in epic games
-
 Change game settings to borderless or windowed
 Run batch file if the cheat not working
 
 How to build the source code ?
+
 Use C++17  
 Use Multi-Byte Character Set  
 Download and install Microsoft DirectX SDK june 2010 (572 MB):  
@@ -21,6 +21,7 @@ Include libs: C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64
 Build with release x64
 
 Cheat Features:
+
 Hotkeys:  
 Home to show / hide menu (customizable)  
 F1 to enable / disable aimbot (customizable)  
@@ -29,6 +30,7 @@ F10 to close the game (customizable)
 you can save / load settings
 
 Some videos:
+
 Super melee: https://user-images.githubusercontent.com/54464793/150986345-0ce819a3-a004-41d3-8358-9408eeba49f5.mp4  
 Melee teleport: https://vimeo.com/manage/videos/661634864  
 Norecoil: https://vimeo.com/669820262  
