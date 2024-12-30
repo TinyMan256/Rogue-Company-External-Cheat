@@ -10,7 +10,7 @@ you cannot use it in epic games
 Change game settings to borderless or windowed
 Run batch file if the cheat not working
 
-How to build the source code ?  
+How to build the source code:  
 Use C++17  
 Use Multi-Byte Character Set  
 Download and install Microsoft DirectX SDK june 2010 (572 MB):  
